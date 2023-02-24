@@ -35,13 +35,16 @@
     app.use(express.json())
 //================================================================================
 //Importando e Usando Rotas criadas
-const userRoutes = require('./routes/userRoutes')
-app.use('/' , userRoutes)
+    const userRoutes = require('./routes/userRoutes')
+    app.use('/' , userRoutes)
+//================================================================================
+//Importando Models! sync() irá automaticamente conectar e criar essas tabelas na database
+    const User = require('./models/User');
 
 
 //================================================================================
 //Conexão Sync
-    conn.sync({ force: true})
+    conn.sync()
     .then( ()=> {
         app.listen(port)
     })
