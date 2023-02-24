@@ -1,0 +1,20 @@
+{
+  "name": "amazingv3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^6.0.7",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.1.2",
+    "sequelize": "^6.29.0",
+    "session-file-store": "^1.5.0"
+  }
+}
