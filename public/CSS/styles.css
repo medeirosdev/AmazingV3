@@ -1,4 +1,6 @@
-h1{
+
+/*========================MainPage===========================================*/
+#h1mp{
     text-align: center;
     font-size: 55px;
     color:#232F3E;
@@ -6,7 +8,7 @@ h1{
     font-family:  'Amazon Ember', sans-serif;
 }
 
-h3{
+#h3mp{
     text-align: center;
     font-size: 29px;
     color:#232F3E;
@@ -14,7 +16,7 @@ h3{
     font-family:  'Amazon Ember', sans-serif;
 }
 
-h4{
+#h4mp{
     text-align: center;
     font-size: 27px;
     color:#232F3E;
@@ -25,6 +27,9 @@ h4{
 #sessão_inicial {
 display: flex ;
 flex-direction: row;
+text-align: center;
+margin: 0 auto;
+justify-content: center;
 }
 
 #caixas{
@@ -64,3 +69,6 @@ flex-direction: row;
     transform:scale(1.01);
     box-shadow: 0 10px 0 #131921;
 }
+
+/*========================MainPage==================================================*/
+

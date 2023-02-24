@@ -47,6 +47,7 @@
     conn.sync()
     .then( ()=> {
         app.listen(port)
+        console.log("Rodando na porta" + port)
     })
     .catch((err)=> {console.log(err)})
 
