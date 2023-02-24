@@ -6,6 +6,10 @@ module.exports = class UserController {
         res.render('pages/mainPage')
     }
 
+    static async registerProduct(req , res){
+        res.render('pages/registerProduct')
+    }
+
 
 
 

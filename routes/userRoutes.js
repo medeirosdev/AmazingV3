@@ -9,6 +9,8 @@
 //Roteando Users
     router.get('/' , UserController.showMain);
 
+    router.get('/register' , UserController.registerProduct)
+
 
 
 //Exportando router
