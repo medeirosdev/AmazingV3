@@ -10,6 +10,18 @@ module.exports = class UserController {
         res.render('pages/registerProduct')
     }
 
+    static async loginUser(req , res){
+        res.render('pages/login')
+    }
+
+    static async addUser(req , res){
+        const user = {
+            name: req.body.title ,
+            email: req.body.email.
+            password :
+        }
+    }
+
 
 
 

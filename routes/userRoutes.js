@@ -11,6 +11,9 @@
 
     router.get('/register' , UserController.registerProduct)
 
+    router.get('/login'  , UserController.loginUser)
+    router.post('/login/addUser' , UserController.addUser)
+
 
 
 //Exportando router
