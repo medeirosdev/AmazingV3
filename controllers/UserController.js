@@ -1,3 +1,6 @@
+const User = require('../')
+
+
 //Configurar classe e Exportar
 
 module.exports = class UserController {
