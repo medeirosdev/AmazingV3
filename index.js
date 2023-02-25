@@ -7,6 +7,8 @@
     const flash = require('express-flash')
     const path = require('path')
 //================================================================================
+
+
 //Importar Banco de Dados
     const conn = require("./db/conn")
 //================================================================================
@@ -14,6 +16,40 @@
 
     const app = express();
     const port = 3003;
+
+
+//================================================================================
+//const flash = require('express-flash')
+// Flash Messages
+    app.use(flash()) // Necessário usar ANTES dos app.use rotas
+//================================================================================
+//Session Middleware - Diz onde o handlebars vai salvar as sessões
+app.use(
+    session({
+        name: "session" , 
+        secret: "nosso_secret" ,
+        resave: false,
+        saveUninitialized : false,
+        store : new fileStore({
+            logFn : function() {} ,
+            path: path.join(require('os').tmpdir() , 'sessions'),
+        }),
+        cookie : {
+            secure: false,
+            maxAge: 360000 ,
+            expires: new Date(Date.now() + 360000) ,
+            httpOnly: true
+        }
+    })
+)
+// set session to res
+    app.use((req, res , next)=> {
+        if(req.session.userid) {
+        res.locals.session = req.session
+        }
+
+    next()
+})
 //================================================================================
 //Handlebars
     app.set('view engine' , 'handlebars')
@@ -41,6 +77,9 @@
 //================================================================================
 //Importando Models! sync() irá automaticamente conectar e criar essas tabelas na database
     const User = require('./models/User');
+
+
+
 
 
 //================================================================================

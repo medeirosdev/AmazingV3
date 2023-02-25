@@ -72,6 +72,23 @@ justify-content: center;
 
 /*========================MainPage==================================================*/
 
+
+
+.message{
+    width: 60%;
+    color:whitesmoke;
+    font-size: 1rem;
+    background-color: #131921;
+    border: 2px solid;
+    border-color: #fdff77;
+    border-radius: 20px;
+    text-align: center;
+    align-items: center;
+    padding:1rem;
+    margin:2rem;
+
+}
+
 /*========================Login==================================================*/
 #formLogin{
     width: 60%;

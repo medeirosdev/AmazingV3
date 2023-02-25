@@ -43,11 +43,11 @@ module.exports = class UserController {
         try {
             await User.create(user)
 
-        //req.flash('message' , '´Pensamento Criado!');
+            req.flash('message' , 'Conta criada!!');
 
-        //req.session.save(()=>{
+        req.session.save(()=>{
             res.redirect('/')
-        //})
+        })
         }catch(err){
             console.log(err)
         } 
