@@ -50,7 +50,7 @@ module.exports = class UserController {
         //})
         }catch(err){
             console.log(err)
-        }
+        } 
     }
 
 
