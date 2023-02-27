@@ -15,8 +15,12 @@ module.exports = class UserController {
         res.render('pages/registerProduct')
     }
 
-    static async loginUser(req , res){
-        res.render('pages/login')
+    static async registerUser(req , res){
+        res.render('pages/registerUser')
+    }
+
+    static async loginUser(req , res ){
+        res.render('pages/loginUser')
     }
 
     static async addUser(req , res){
@@ -52,6 +56,10 @@ module.exports = class UserController {
             console.log(err)
         } 
     }
+
+
+
+
 
 
 
