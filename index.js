@@ -78,6 +78,8 @@ app.use(
 //Importando Models! sync() irá automaticamente conectar e criar essas tabelas na database
     const User = require('./models/User');
 
+//================================================================================
+
 
 
 

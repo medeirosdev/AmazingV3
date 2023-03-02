@@ -21,6 +21,16 @@ module.exports = class UserController {
 
     static async loginUser(req , res ){
         res.render('pages/loginUser')
+
+        //Inicializar a Sessão do usuário
+        
+        req.session.userid = User.id
+
+        req.flash('message' , 'Bem vindo(a)!');
+
+        req.session.save(() => {
+            res.redirect('/')
+        })
     }
 
     static async addUser(req , res){
@@ -57,8 +67,28 @@ module.exports = class UserController {
         } 
     }
 
+    static async loginUserPost(req, res){
+        
+    }
 
 
+    static async listAccounts(req , res){
+
+        const accountsList = await User.findAll({raw: true});
+        console.log(accountsList)
+
+        //const accounts = accountsList.map((result) => result.get({plain:true}))
+        //let accountsQty = accounts.length
+
+        //if( accountsQty === 0){
+        //    accountsQty = false
+        //}
+        
+        res.render('pages/listAccounts' , {accountsList});
+
+
+
+    }
 
 
 
