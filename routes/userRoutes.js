@@ -20,7 +20,7 @@
     router.get('/login' , UserController.loginUser);
     router.post('/login/loginUser' , UserController.loginUserPost);
 
-    router.get('/accounts' , checkAuth, UserController.listAccounts);
+    router.get('/accounts' ,  UserController.listAccounts);
 
 
 

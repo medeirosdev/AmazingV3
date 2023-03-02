@@ -24,13 +24,7 @@ module.exports = class UserController {
 
         //Inicializar a Sessão do usuário
         
-        req.session.userid = User.id
-
-        req.flash('message' , 'Bem vindo(a)!');
-
-        req.session.save(() => {
-            res.redirect('/')
-        })
+        
     }
 
     static async addUser(req , res){
@@ -84,7 +78,7 @@ module.exports = class UserController {
         //    accountsQty = false
         //}
         
-        res.render('pages/listAccounts' , {accountsList});
+        res.render('pages/listAccounts' , accountsList );
 
 
 

@@ -1,4 +1,4 @@
-module.exports.checkAuth = (req , res, next) =>{
+const checkAuth = (req , res, next) =>{
 
     const userId = req.session.userid;
 
@@ -13,3 +13,5 @@ module.exports.checkAuth = (req , res, next) =>{
 
 
 }
+
+module.exports = checkAuth;
