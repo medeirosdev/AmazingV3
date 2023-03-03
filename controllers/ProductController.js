@@ -10,12 +10,32 @@ module.exports = class ProductController {
         res.render('pages/registerProduct')
     }
 
+    static async showProducts(req , res){
+        const listProducts = await Product.findAll({raw:true});
+        const users = await User.findAll({raw:true});
+
+        res.render('pages/homeProducts', {listProducts , users})
+
+
+
+    }
+
     static async createProduct (req ,res){
+        const price = req.body.price;
+        const priceFloat = parseFloat(price)
         const product = {
             name: req.body.name ,
-            price: req.body.price,
+            price: priceFloat,
             description: req.body.description,
             UserId: req.session.userid
+        }
+
+        try{
+            await Product.create(product);
+            req.flash('message' , 'Produto Adicionado!')
+            res.redirect('/')
+        }catch(err){
+            console.log(err);
         }
 
         

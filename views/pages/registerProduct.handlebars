@@ -1,16 +1,17 @@
 <div>
     <form id="formLogin" action="/createProduct" method="POST">
         <div class="form-floating mb-3">
-        <input type="email" name="name" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="text" name="name" class="form-control" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Nome do Produto</label>
     </div>
     <div class="form-floating">
-        <input type="password" name="price" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="text" name="price" class="form-control" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Preço</label>
     </div>
     <div class="form-floating">
     <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
     <label for="floatingTextarea2">Descrição</label>
     </div>
+    <button id="formItem" type="submit" class="btn btn-primary">Criar Anúncio</button>
     </form>
 </div>

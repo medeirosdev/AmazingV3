@@ -14,17 +14,17 @@ const Product = db.define('Product' , {
         allowNull : false ,
         require: true,
     },
-    id: {
-        type: DataTypes.STRING ,
-        allowNull : false ,
-        require: true,
-        primaryKey: true,
-    },
     price: {
         type: DataTypes.FLOAT ,
         allowNull : false ,
         require: true,
     },
+    UserId: {
+        type: DataTypes.INTEGER ,
+        allowNull : false ,
+        require: true,
+    },
+    
 
 
 })
