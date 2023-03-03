@@ -1,6 +1,7 @@
 const User = require("../models/User")
 const {Op} = require('sequelize')
 const bcrypt = require('bcrypt')
+const db = require('../db/conn')
 
 
 //Configurar classe e Exportar
@@ -28,14 +29,25 @@ module.exports = class UserController {
     }
 
     static async addUser(req , res){
+        const email = req.body.email;
+        const checkIfUserExists = await User.findOne({where: {email : email}})
+
+        if(checkIfUserExists){
+            req.flash('message' , "O e-mail já está em Uso!");
+            res.render('pages/registerUser')
+
+            return
+        }
+
 
         //Confirmar Password
         const confirmpasswordbody = req.body.confirmpassword
         const passwordbody = req.body.password
 
-        //if(passwordbody != confirmpasswordbody){
-
-        //}
+        if(passwordbody != confirmpasswordbody){
+            req.flash('message' , "Senhas divergem!");
+            res.render('pages/registerUser')
+        }
 
         //create password
             const salt = await bcrypt.genSalt(12)
@@ -44,7 +56,7 @@ module.exports = class UserController {
 
         const user = {
             name: req.body.name ,
-            email: req.body.email,
+            email:email,
             password : passwordHash
         }
 
@@ -62,26 +74,54 @@ module.exports = class UserController {
     }
 
     static async loginUserPost(req, res){
+        const name = req.body.name;
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const user = await User.findOne({ where: { email : email}})
+
+        if(!user){
+            req.flash('message' , 'Usuário Não Encontrado!, Email já cadastrado')
+            res.render('pages/login')
+            return
+        }
+
+        //Password Match ==================================================
+
+        const passwordMatch = bcrypt.compareSync(password , user.password );
+        if(!passwordMatch){
+            req.flash('message' , 'Senha Incorreta')
+            res.render('pages/login')
+            return
+
+        }
+            //Inicializar a Sessão do usuário ========================
+            req.session.userid = user.id
+
+            req.flash('message' , 'Bem vindo(a)!');
+
+            req.session.save(() => {
+                res.redirect('/')
+            })
         
     }
 
 
     static async listAccounts(req , res){
+        //const accountsList = await User.findAll({raw: true});
+        //console.log(accountsList)
 
-        const accountsList = await User.findAll({raw: true});
-        console.log(accountsList)
+        const accounts = await User.findAll(
+            {raw: true})
 
-        //const accounts = accountsList.map((result) => result.get({plain:true}))
-        //let accountsQty = accounts.length
-
-        //if( accountsQty === 0){
-        //    accountsQty = false
-        //}
+        //const accounts = accountsList.map((result) => result.get({plain : true}))
         
-        res.render('pages/listAccounts' , accountsList );
+        res.render('pages/listAccounts' , {accounts} );
+    }
 
-
-
+    static async sairConta(req ,res ){
+        req.session.destroy();
+        res.redirect('/');
     }
 
 

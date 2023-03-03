@@ -22,6 +22,8 @@
 
     router.get('/accounts' ,  UserController.listAccounts);
 
+    router.get("/sairConta" , UserController.sairConta);
+
 
 
 //Exportando router

@@ -26,16 +26,25 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Ofertas</a>
         </li>
-      
-        <li class="nav-item">
-          <a class="nav-link" href="/register">Criar Conta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Entrar na Conta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/accounts">Painel de Administração</a>
-        </li>
+        {{#if session.userid}}
+            <li class="nav-item">
+                <a class="nav-link" href="/registerProduct">Registrar Produto</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sairConta">Sair</a>
+            </li>
+        {{else}}
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Criar Conta</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Entrar na Conta</a>
+            </li>
+        {{/if}}
+            <li class="nav-item">
+              <a class="nav-link" href="/accounts">Painel de Administração</a>
+            </li>
+        
 
         
       </ul>
