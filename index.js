@@ -74,6 +74,9 @@ app.use(
 //Importando e Usando Rotas criadas
     const userRoutes = require('./routes/userRoutes')
     app.use('/' , userRoutes)
+    //+++++++++++++++++++++//
+    const productRoutes = require('./routes/productRoutes')
+    app.use('/', productRoutes)
 //================================================================================
 //Importando Models! sync() irá automaticamente conectar e criar essas tabelas na database
     const User = require('./models/User');

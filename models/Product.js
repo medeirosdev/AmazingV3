@@ -1,4 +1,5 @@
 const { DataTypes } = require('sequelize')
+const User  = require('./User');
 
 const db = require('../db/conn')
 
@@ -17,6 +18,7 @@ const Product = db.define('Product' , {
         type: DataTypes.STRING ,
         allowNull : false ,
         require: true,
+        primaryKey: true,
     },
     price: {
         type: DataTypes.FLOAT ,
@@ -26,5 +28,8 @@ const Product = db.define('Product' , {
 
 
 })
+
+Product.belongsTo(User)
+User.hasMany(Product)
 
 module.exports = Product

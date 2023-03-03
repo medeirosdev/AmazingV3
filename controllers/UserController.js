@@ -74,7 +74,6 @@ module.exports = class UserController {
     }
 
     static async loginUserPost(req, res){
-        const name = req.body.name;
         const email = req.body.email;
         const password = req.body.password;
 
@@ -82,7 +81,7 @@ module.exports = class UserController {
 
         if(!user){
             req.flash('message' , 'Usuário Não Encontrado!, Email já cadastrado')
-            res.render('pages/login')
+            res.render('pages/loginUser')
             return
         }
 
@@ -91,7 +90,7 @@ module.exports = class UserController {
         const passwordMatch = bcrypt.compareSync(password , user.password );
         if(!passwordMatch){
             req.flash('message' , 'Senha Incorreta')
-            res.render('pages/login')
+            res.render('pages/loginUser')
             return
 
         }
