@@ -2,15 +2,19 @@
     <form id="formLogin" action="/createProduct" method="POST">
         <div class="form-floating mb-3">
         <input type="text" name="name" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Nome do Produto</label>
+        <label for="name">Nome do Produto</label>
     </div>
     <div class="form-floating">
         <input type="text" name="price" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Preço</label>
+        <label for="price">Preço</label>
+    </div>
+    <div class="form-floating">
+        <input type="text" name="url" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="url">URL Imagem</label>
     </div>
     <div class="form-floating">
     <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-    <label for="floatingTextarea2">Descrição</label>
+    <label for="description">Descrição</label>
     </div>
     <button id="formItem" type="submit" class="btn btn-primary">Criar Anúncio</button>
     </form>

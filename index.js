@@ -82,7 +82,9 @@ app.use(
     const User = require('./models/User');
 
 //================================================================================
-
+//exphbs.registerHelper('toJSON', function(obj) {
+//    return JSON.stringify(obj, null, 3);
+//});
 
 
 

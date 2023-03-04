@@ -19,6 +19,11 @@ const Product = db.define('Product' , {
         allowNull : false ,
         require: true,
     },
+    url: {
+        type: DataTypes.STRING ,
+        allowNull : false ,
+        require: false,
+    },
     UserId: {
         type: DataTypes.INTEGER ,
         allowNull : false ,

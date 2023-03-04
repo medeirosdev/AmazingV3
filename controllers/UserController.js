@@ -35,7 +35,6 @@ module.exports = class UserController {
         if(checkIfUserExists){
             req.flash('message' , "O e-mail já está em Uso!");
             res.render('pages/registerUser')
-
             return
         }
 
@@ -109,13 +108,12 @@ module.exports = class UserController {
     static async listAccounts(req , res){
         //const accountsList = await User.findAll({raw: true});
         //console.log(accountsList)
-
-        const accounts = await User.findAll(
-            {raw: true})
-
+        const accounts = await User.findAll({raw:true})
+        //console.log(accounts)
+    
+        //const accounts = accounts1.map((result) => result.get({plain : true}))
         //const accounts = accountsList.map((result) => result.get({plain : true}))
-        
-        res.render('pages/listAccounts' , {accounts} );
+        res.render('pages/listAccounts' ,  {accounts});
     }
 
     static async sairConta(req ,res ){
