@@ -63,8 +63,8 @@ module.exports = class UserController {
             await User.create(user)
 
             req.flash('message' , 'Conta criada!!');
-
-        req.session.save(()=>{
+            req.session.userid = user.id
+            req.session.save(()=>{
             res.redirect('/')
         })
         }catch(err){
@@ -119,6 +119,14 @@ module.exports = class UserController {
     static async sairConta(req ,res ){
         req.session.destroy();
         res.redirect('/');
+    }
+
+    static async myAccount(req, res){
+        const id = req.session.userid;
+        const accounts = await User.findOne({ where: { id : id}} ,{raw:true})
+        console.log(accounts)
+        
+        res.render('pages/userAccount' , {accounts})
     }
 
 

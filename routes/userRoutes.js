@@ -5,6 +5,7 @@
 //================================================================================
 //Import Autorização
     const checkAuth = require('../helpers/auth');
+    const checkAuthAdmin = require('../helpers/authAdmin')
 
 //Importando Controller
     const UserController = require("../controllers/UserController")
@@ -18,9 +19,11 @@
     router.get('/login' , UserController.loginUser);
     router.post('/login/loginUser' , UserController.loginUserPost);
 
-    router.get('/accounts' ,  UserController.listAccounts);
+    router.get('/accounts' , checkAuth, checkAuthAdmin ,  UserController.listAccounts);
 
     router.get("/sairConta" , UserController.sairConta);
+
+    router.get('/myAccount' , UserController.myAccount)
 
 
 

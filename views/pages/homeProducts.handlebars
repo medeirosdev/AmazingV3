@@ -1,7 +1,20 @@
-{{#each listProducts }}
-     <h2>{{this.name}}</h2>
-     <img src="{{this.url}}">
-     <p>{{this.price}}R$</p>
-    <p>Sobre: {{this.description}} </p>
-    <footer><p>Produto Vendido por {{this.User.name}}</p></footer>
-{{/each}}
+
+<div id="listProducts">
+    {{#each listProducts }}
+        <div id="cardproduct">
+            
+            <img class="imgProduct" src="{{this.url}}">
+            <h3 id="h3product">{{this.name}}</h3>
+            <p class="productp">{{this.price}}R$</p>
+            <p class="productp">Sobre: {{this.description}} </p>
+            <footer><p>Produto Vendido por {{this.User.name}}</p></footer>
+        </div>
+    {{/each}}
+</div>
+
+
+
+
+
+
+
