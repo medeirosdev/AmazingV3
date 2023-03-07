@@ -10,8 +10,8 @@ const checkAuth = require('../helpers/auth');
 const ProductController = require("../controllers/ProductController")
 //================================================================================
 
-router.get('/registerProduct' , ProductController.registerProduct);
-router.post('/createProduct' , ProductController.createProduct);
+router.get('/registerProduct' , checkAuth , ProductController.registerProduct);
+router.post('/createProduct' ,checkAuth , ProductController.createProduct);
 
 router.get('/homeProducts' , ProductController.showProducts);
 

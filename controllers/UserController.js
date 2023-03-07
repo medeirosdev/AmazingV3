@@ -2,6 +2,7 @@ const User = require("../models/User")
 const {Op} = require('sequelize')
 const bcrypt = require('bcrypt')
 const db = require('../db/conn')
+const Product = require("../models/Product")
 
 
 //Configurar classe e Exportar
@@ -127,6 +128,13 @@ module.exports = class UserController {
         console.log(accounts)
         
         res.render('pages/userAccount' , {accounts})
+    }
+
+    static async myProducts(req , res){
+        const id = req.session.userid;
+        const myProducts = await Product.findAll({where:{UserId : id}},{raw:true})
+
+        res.render('pages/myProducts' , {myProducts})
     }
 
 

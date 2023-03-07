@@ -25,6 +25,8 @@
 
     router.get('/myAccount' , UserController.myAccount)
 
+    router.get('/myproducts' , UserController.myProducts)
+
 
 
 //Exportando router

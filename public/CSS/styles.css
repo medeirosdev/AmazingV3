@@ -127,6 +127,8 @@ justify-content: center;
 #cardproduct{
     min-width: 150px;
     max-width: 250px;
+    min-height: 300px;
+    max-width: 400px;
     border:solid 2px;
     border-radius: 20px;
     border-color: #131921;
@@ -142,6 +144,8 @@ justify-content: center;
 .imgProduct{
     width: 200px;
     margin: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: auto;
 }
 
 .productp{
@@ -159,6 +163,32 @@ justify-content: center;
 }
 
 
+#infoTab{
+    padding: 20px;
+    border: #131921 2px solid;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.infos{
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+
+#divform{
+    align-items: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 10px;
+}
+
+h2{
+    margin: 10px;
+}
 
 
 

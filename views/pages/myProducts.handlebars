@@ -1,19 +1,10 @@
-
-<div id="listProducts">
-    {{#each listProducts}}
-        <div id="cardproduct">
+{{#each myProducts}}
+    <div id="cardproduct">
             <img class="imgProduct" src="{{this.url}}">
             <h3 id="h3product">{{this.name}}</h3>
             <p class="productp">{{this.price}}R$</p>
             <p class="productp">Sobre: {{this.description}} </p>
             <footer><p class="productp">Produto Vendido por {{this.User.name}}</p></footer>
         </div>
-    {{/each}}
-</div>
 
-
-
-
-
-
-
+{{/each}}

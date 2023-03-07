@@ -12,7 +12,6 @@ module.exports = class ProductController {
 
     static async showProducts(req , res){
         const listProducts = await Product.findAll({raw:true , include: User,});
-
         res.render('pages/homeProducts', {listProducts})
         
 
@@ -21,13 +20,14 @@ module.exports = class ProductController {
 
     static async createProduct (req ,res){
         const price = req.body.price;
+        const userid = req.session.userid
         const priceFloat = parseFloat(price)
         const product = {
             name: req.body.name ,
             price: priceFloat,
             url: req.body.url,
             description: req.body.description,
-            UserId: req.session.userid
+            UserId: userid
         }
 
         try{

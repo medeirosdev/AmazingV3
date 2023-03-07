@@ -1,7 +1,7 @@
 {{#each accounts}}
-    <figure>
-     <p>"{{this.name}}"</p>
-     <p> "{{this.email}}"</p>
-    <p>"{{this.password}}"</p>
-    </figure>
+    <div id="infoTab">
+     <h2> Nome da Conta : {{this.name}}</h2>
+     <p class="infos"> Email do Usuário : {{this.email}}</p>
+    <p class="infos">Senha : {{this.password}}</p>
+    </div>
 {{/each}}
